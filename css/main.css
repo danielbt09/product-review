@@ -35,23 +35,24 @@ h2 {
 	margin-top: 50px;
 	padding: 5px;
 }
+
+input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
+	border: 2px solid red;
+}
 .product-review {
 	padding: 20px;
 }
 .contact-info {
-	display: block;
+	display: inline-block;
 	width: 25%;
 	margin: 10px 0px;
 	padding: 5px;
 	border: 2px solid #000;
 	outline: 0;
 }
-.mail-error {
+.input-error {
 	display: inline-block;
 	color: #B70F0A;
-}
-.contact-info--email {
-	display: inline-block;
 }
 .form-textarea {
 	display: inline-block;
@@ -63,6 +64,13 @@ h2 {
   	border: 2px solid #000;
   	outline: 0;
 }
+.input-error--textarea {
+	display: block;
+	margin-bottom: 36px;
+}
+/*textarea.ng-invalid.ng-dirty {
+	border: 2px solid red;
+}*/
 .rating-and-form-button {
 	display: inline-block;
   	width: 16%;
