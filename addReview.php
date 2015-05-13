@@ -19,6 +19,6 @@ if ($conn->query("INSERT INTO product_reviews_table VALUES "
     echo "OK";
 } else {
     echo "Error";
-}
+};
 $conn->close();
 ?>

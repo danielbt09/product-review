@@ -68,9 +68,6 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
 	display: none;
 	margin-bottom: 36px;
 }
-/*textarea.ng-invalid.ng-dirty {
-	border: 2px solid red;
-}*/
 .rating-and-form-button {
 	display: inline-block;
   	width: 16%;
@@ -107,7 +104,7 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
   	transition: background .3s, color .3s;
 }
 .product-feedback {
-	margin: 40px 20px 30px;
+	margin: 10px 20px 30px;
 	padding: 20px;
 	padding-right: 0px;
 	border: 2px solid #000;
