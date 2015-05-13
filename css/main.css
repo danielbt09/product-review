@@ -51,7 +51,7 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
 	outline: 0;
 }
 .input-error {
-	display: inline-block;
+	display: none;
 	color: #B70F0A;
 }
 .form-textarea {
@@ -65,7 +65,7 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
   	outline: 0;
 }
 .input-error--textarea {
-	display: block;
+	display: none;
 	margin-bottom: 36px;
 }
 /*textarea.ng-invalid.ng-dirty {
@@ -107,7 +107,7 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
   	transition: background .3s, color .3s;
 }
 .product-feedback {
-	margin: 0px 20px 20px;
+	margin: 40px 20px 30px;
 	padding: 20px;
 	padding-right: 0px;
 	border: 2px solid #000;
@@ -133,6 +133,7 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
 .user-review {
 	display: inline-block;
   	vertical-align: top;
+  	min-width: 70%;
   	max-width: 70%;
   	margin-left: 20px;
 }

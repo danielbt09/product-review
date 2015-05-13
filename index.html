@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Product Reviews</title>
-	<link rel="icon" type="image/png" href="images/favicon.ico">
+	<link rel="icon" type="image/png" href="images/favicon.png">
 	<link href="css/normalize.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
@@ -11,22 +11,24 @@
 <body>
 	<div class="form-wrapper">
 		<div class="wrapper-center">
-			<form name="frm" class="product-review" action="#">
-				<input class="contact-info" type="text" name="name" placeholder="Name" ng-model="text" required ng-minlength="3">
-				<span class="input-error"  ng-show="frm.name.$dirty && frm.name.$error.required">Required!</span>
-				<span class="input-error"  ng-show="frm.name.$dirty && frm.name.$error.minlength">name is invalid!</span>
+			<form name="frm" class="product-review" ng-app="formApp" ng-controller="formController">
+				<input ng-model="client.FName" type="text" class="contact-info" name="FName" placeholder="Name" required ng-minlength="3">
+					<span class="input-error" ng-show="frm.FName.$dirty && frm.FName.$error.required">Required!</span>
+					<span class="input-error" ng-show="frm.FName.$dirty && frm.FName.$error.minlength">name is invalid!</span>
 				<br>
-				<input class="contact-info" type="email" name="email" placeholder="Email Adress" ng-model="user.email" required>
-				<span class="input-error"  ng-show="frm.email.$dirty && frm.email.$error.required">Required!</span>
-				<span class="input-error"  ng-show="frm.email.$dirty && frm.email.$error.email">email adress is invalid!</span>
+
+				<input ng-model="client.Email" type="email" class="contact-info" name="Email" placeholder="Email" required>
+					<span class="input-error" ng-show="frm.Email.$dirty && frm.Email.$error.required">Required!</span>
+					<span class="input-error" ng-show="frm.Email.$dirty && frm.Email.$error.email">email adress is invalid!</span>
+
 				<div class="form-review">
-							
-					<textarea class="form-textarea" type="text" name="textarea" placeholder="Add your review here!" 
-							ng-model="textarea" required ng-minlength="5" ng-maxlength="200" >
-							</textarea><!--
+					<textarea ng-model="client.ReviewTextarea" type="text" class="form-textarea" name="ReviewTextarea" placeholder="Add your review here!" 
+							required ng-minlength="5" ng-maxlength="400" >
+					</textarea><!--
 				--><div class="rating-and-form-button">
-				<span class="input-error input-error--textarea"  ng-show="frm.textarea.$dirty && frm.textarea.$error.required">Required!</span>
-				<span class="input-error input-error--textarea"  ng-show="frm.textarea.$dirty && frm.textarea.$error.minlength">5 chars minimum!</span>
+							<span class="input-error input-error--textarea" ng-show="frm.ReviewTextarea.$dirty && frm.ReviewTextarea.$error.required">Required!</span>
+							<span class="input-error input-error--textarea" ng-show="frm.ReviewTextarea.$dirty && frm.ReviewTextarea.$error.minlength">5 chars min!</span>
+							<span class="input-error input-error--textarea" ng-show="frm.ReviewTextarea.$dirty && frm.ReviewTextarea.$error.maxlength">600 chars max!</span>
 						<div class="form-rating">
 							<div class="rating">
 								<span>&#9734;</span><!--
@@ -36,7 +38,7 @@
 							 --><span>&#9734;</span>
 							</div>
 						</div>
-						<button class="form-button" type="submit" ng-disabled="frm.$invalid">Add my review!</button>
+						<button type="submit" class="form-button" ng-disabled="frm.$invalid" ng-click="addReview()">Add my review!</button>
 					</div>
 				</div>
 			</form>
@@ -66,7 +68,7 @@
 							<div class="user-avatar--name">Titi Lugeorgescu</div>
 						</div><!-- 
 					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
+							It's bad..
 						</div><!--
 					 --><div class="user-rating">
 							<div class="user-rate">
@@ -84,7 +86,7 @@
 							<div class="user-avatar--name">Titi Lugeorgescu</div>
 						</div><!-- 
 					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
+							It's bad..
 						</div><!--
 					 --><div class="user-rating">
 							<div class="user-rate">
@@ -96,169 +98,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
-						</div><!-- 
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
-						</div><!-- 
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
-						</div><!-- 
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
-						</div><!-- 
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
-						</div><!-- 
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
-						</div><!-- 
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
-						</div><!-- 
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
-						</div><!-- 
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :) I recommend this product :)
-						</div><!-- 
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-
 				</div>
 				<div class="product-feedback--pages">
 					<ul class="feedback-nav">
@@ -286,7 +125,12 @@
 		</div>
 	</div>
 
-		<script type="text/javascript" src="http://code.angularjs.org/1.2.3/angular.min.js"></script>
-	<!--<script type="text/javascript" src="js/main.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://code.angularjs.org/1.2.3/angular.min.js"></script>
+        <script src="libs/angular/angular-resource.js"></script>
+        <script src="js/controllers/controller.js"></script>
+        <script src="js/services/service.js"></script> 
+        <script src="js/main.js"></script>
+
 </body>
 </html>
