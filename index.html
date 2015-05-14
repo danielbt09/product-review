@@ -8,10 +8,10 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body ng-app="formApp">
 	<div class="form-wrapper">
 		<div class="wrapper-center">
-			<form name="frm" class="product-review" ng-app="formApp" ng-controller="formController">
+			<form name="frm" class="product-review" ng-controller="formController">
 				<input ng-model="client.FName" type="text" class="contact-info" name="FName" placeholder="Name" required ng-minlength="3">
 					<span class="input-error" ng-show="frm.FName.$dirty && frm.FName.$error.required">Required!</span>
 					<span class="input-error" ng-show="frm.FName.$dirty && frm.FName.$error.minlength">name is invalid!</span>
@@ -40,56 +40,22 @@
 						</div>
 						<button type="submit" class="form-button" ng-disabled="frm.$invalid" ng-click="addReview()">Add my review!</button>
 					</div>
+					<div class="form-review--succesful-message">Review was added! Thank you!</div>
 				</div>
 			</form>
-			<div class="product-feedback">
+
+			<div class="product-feedback" ng-controller="reviewsController">
 				<div class="product-feedback--user-feedback">
-					<div class="user-feedback">
+					<div class="user-feedback" ng-repeat="client in reviews">
 						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar/b57aae41062df6cc4879e8675b71943e?r=R&d=identicon&s=80">
-							<div class="user-avatar--name">Gigi Lupulescu</div>
+							<img class="user-avatar--pic" src="https://secure.gravatar.com/avatar/{{ client.Email }}?s=80" alt="pic">
+							<div class="user-avatar--name">{{ client.FName }}</div>
 						</div><!--
-					 --><div class="user-review">
-							Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :) Good! I recommend this product :)
+					 --><div class="user-review" >
+							{{ client.ReviewTextarea }}
 						</div><!--
 					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							It's bad..
-						</div><!--
-					 --><div class="user-rating">
-							<div class="user-rate">
-								<span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span><!--
-							 --><span>&#9734;</span>
-							</div>
-						</div>
-					</div>
-					<div class="user-feedback">
-						<div class="user-avatar">
-							<img class="user-avatar--pic" src="http://www.gravatar.com/avatar">
-							<div class="user-avatar--name">Titi Lugeorgescu</div>
-						</div><!-- 
-					 --><div class="user-review">
-							It's bad..
-						</div><!--
-					 --><div class="user-rating">
-							<div class="user-rate">
+							<div class="user-rate user-rating--3" >
 								<span>&#9734;</span><!--
 							 --><span>&#9734;</span><!--
 							 --><span>&#9734;</span><!--

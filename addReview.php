@@ -16,9 +16,10 @@ if ($conn->connect_error) {
 if ($conn->query("INSERT INTO product_reviews_table VALUES "
                 . "('" . $myjson['NULL'] . "', '" . $myjson['FName'] . "', '" . $myjson['Email'] . "',
                  '" . $myjson['ReviewTextarea'] . "','" . $myjson['Rating'] . "')") === TRUE) {
-    echo "OK";
+	echo "OK";
 } else {
     echo "Error";
 };
+
 $conn->close();
 ?>

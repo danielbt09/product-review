@@ -35,7 +35,11 @@ h2 {
 	margin-top: 50px;
 	padding: 5px;
 }
-
+.form-review--succesful-message {
+	display: none;
+	margin-top: 10px;
+	color: #B70F0A;
+}
 input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
 	border: 2px solid red;
 }
