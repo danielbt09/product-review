@@ -119,6 +119,7 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
 	overflow-x: hidden;
 }
 .user-feedback {
+	display: none;
 	margin-bottom: 10px;
 	padding: 20px;
 	border: 2px solid #000;
@@ -146,6 +147,34 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
   	font-size: 20px;
   	color: grey;
 }
+.user-rating span {
+	position: relative;
+}
+.user-rate--1 span:nth-child(-n+1):before {
+   	content: "\2605";
+   	position: absolute;
+   	color: #000;
+}
+.user-rate--2 span:nth-child(-n+2):before {
+   	content: "\2605";
+   	position: absolute;
+   	color: #000;
+}
+.user-rate--3 span:nth-child(-n+3):before {
+   	content: "\2605";
+   	position: absolute;
+   	color: #000;
+}
+.user-rate--4 span:nth-child(-n+4):before {
+   	content: "\2605";
+   	position: absolute;
+   	color: #000;
+}
+.user-rate--5 span:nth-child(-n+5):before {
+   	content: "\2605";
+   	position: absolute;
+   	color: #000;
+}
 .product-feedback--pages {
 	text-align: center;
 	margin-top: 20px;
@@ -163,6 +192,3 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  {
 	font-weight: bold;
 	color: #000;
 }
-
-
-

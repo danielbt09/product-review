@@ -5,6 +5,7 @@ app.controller('formController', ['$scope', 'PhpService', function ($scope, PhpS
     $scope.client = {};
     $scope.addReview = function () {
         var addReview = {};
+        $scope.client.Rating = 3;
         addReview = $.param({"add_review": JSON.stringify($scope.client)});
         PhpService.addReview(addReview);
         showMessage();
@@ -29,7 +30,7 @@ app.controller('reviewsController', ['$scope', '$http', function ($scope, $http)
             console.log('error');
         });
 }]);
-
+$('.user-feedback').fadeIn(0);
 function showMessage() {
     $( '.form-review--succesful-message' ).fadeIn();
 }
