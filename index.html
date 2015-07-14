@@ -8,10 +8,10 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 
-<body ng-app="formApp">
+<body ng-app="formApp" ng-controller="formController">
 	<div class="form-wrapper">
 		<div class="wrapper-center">
-			<form name="frm" class="product-review" ng-controller="formController">
+			<form name="frm" class="product-review">
 				<input ng-model="client.FName" type="text" class="contact-info" name="FName" placeholder="Name" required ng-minlength="3">
 					<span class="input-error" ng-show="frm.FName.$dirty && frm.FName.$error.required">Required!</span>
 					<span class="input-error" ng-show="frm.FName.$dirty && frm.FName.$error.minlength">name is invalid!</span>
@@ -44,9 +44,9 @@
 				</div>
 			</form>
 
-			<div class="product-feedback" ng-controller="reviewsController">
+			<div class="product-feedback">
 				<div class="product-feedback--user-feedback">
-					<div class="user-feedback" ng-repeat="client in reviews">
+					<div class="user-feedback" ng-repeat="client in reviews | startFrom:currentPage*pageSize | limitTo:pageSize">
 						<div class="user-avatar">
 							<img class="user-avatar--pic" src="https://secure.gravatar.com/avatar/{{ client.Email }}?s=80" alt="pic">
 							<div class="user-avatar--name">{{ client.FName }}</div>
@@ -67,12 +67,16 @@
 				</div>
 				<div class="product-feedback--pages">
 					<ul class="feedback-nav">
-						<li class="page">
-							<a href="#">1</a>
-						</li>
-						<li class="page active-page">
-							<a href="#">2</a>
-						</li>
+						<button class="feedback-nav--button" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        					Previous
+					    </button>
+					   	 <ul class="feedback-nav--list">
+					   	 	<li >{{ currentPage+1 }}/{{ numberOfPages() }}</li>
+					   	</ul>
+					    <button class="feedback-nav--button" ng-disabled="currentPage >= reviews.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+					        Next
+					    </button>
+						<!-- </li>
 						<li class="page">
 							<a href="#">3</a>
 						</li>
@@ -84,7 +88,7 @@
 						</li>
 						<li class="page">
 							<a href="#">10</a>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>

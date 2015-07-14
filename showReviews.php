@@ -12,7 +12,7 @@ $con = mysql_connect("localhost","root","root");
 
 	mysql_select_db("product_reviews", $con);
 
-		$result = mysql_query("SELECT * FROM product_reviews_table ORDER BY ID DESC LIMIT 20");
+		$result = mysql_query("SELECT * FROM product_reviews_table ORDER BY ID DESC");
 		$reviews = array();
 
 	while($row = mysql_fetch_array($result)) {
